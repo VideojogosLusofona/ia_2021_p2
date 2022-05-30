@@ -5,10 +5,17 @@
  * Author: Nuno Fachada
  * */
 
+using System;
+
+/// <summary>
+/// Lunar lander actions. Note the use of enum flags, so we can have several
+/// actions simultaneously.
+/// </summary>
+[Flags]
 public enum LanderAction
 {
-    None,
-    Thrusters,
-    Right,
-    Left
+    None      = 0,
+    Thrusters = 1,
+    Right     = 2,
+    Left      = 4
 }

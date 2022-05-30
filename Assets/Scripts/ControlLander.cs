@@ -56,20 +56,20 @@ public class ControlLander : MonoBehaviour
         // Assume there's no action by default
         action = LanderAction.None;
 
-        // Check if the user pressed any valid key
+        // Check if the user pressed any valid key, and if so, capture them
         if (Input.anyKey)
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                action = LanderAction.Thrusters;
+                action |= LanderAction.Thrusters;
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow))
             {
-                action = LanderAction.Right;
+                action |= LanderAction.Right;
             }
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
-                action = LanderAction.Left;
+                action |= LanderAction.Left;
             }
         }
     }
@@ -78,26 +78,29 @@ public class ControlLander : MonoBehaviour
     private void FixedUpdate()
     {
         // Was any action specified by the player during the last frame update?
-        switch (action)
+        if (action != LanderAction.None)
         {
-            case LanderAction.Thrusters:
+            if (action.HasThrusters())
+            {
                 // Apply thrust
                 rb.AddForce(thrust * Deg2Vec(rb.rotation + 90));
                 // Remember last time thrust was applied
                 lastThrustTime = Time.fixedTime;
-                break;
-            case LanderAction.Right:
+            }
+            if (action.HasRight())
+            {
                 // Rotate right
                 rb.SetRotation(rb.rotation - rotationDelta);
-                break;
-            case LanderAction.Left:
+            }
+            if (action.HasLeft())
+            {
                 // Rotate left
                 rb.SetRotation(rb.rotation + rotationDelta);
-                break;
+            }
         }
 
         // Determine if it's necessary to swap sprites
-        if (action == LanderAction.Thrusters && sr.sprite == landerNoThrusters)
+        if (action.HasThrusters() && sr.sprite == landerNoThrusters)
         {
             sr.sprite = landerWithThrusters;
         }
