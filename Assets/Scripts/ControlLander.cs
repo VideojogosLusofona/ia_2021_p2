@@ -19,7 +19,7 @@ public class ControlLander : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Thrust/force to apply when pressing the up arrow")]
-    private float thrust = 5.0f;
+    private float thrust = 2.0f;
 
     [SerializeField]
     [Tooltip("Rotation (in degrees) to apply when pressing the right or left arrows")]

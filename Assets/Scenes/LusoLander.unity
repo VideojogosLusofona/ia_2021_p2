@@ -236,6 +236,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -303,7 +304,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.1
   m_AngularDrag: 0.05
   m_GravityScale: 0.1
   m_Material: {fileID: 0}
@@ -325,5 +326,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   landerNoThrusters: {fileID: -3292670480771375093, guid: 56b972a576796064b89c637a32ea12af, type: 3}
   landerWithThrusters: {fileID: -8296841764402994927, guid: 56b972a576796064b89c637a32ea12af, type: 3}
-  thrust: 5
+  thrust: 2
   rotationDelta: 2
