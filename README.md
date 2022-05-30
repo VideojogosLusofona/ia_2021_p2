@@ -80,9 +80,49 @@ semelhante [neste link](https://arcader.com/lunar-lander/).
 * Podem usar outras alternativas tanto para o cenários de aterragem, como para o
   céu, desde que bem justificadas e referenciadas.
 
-### Aprendizagem
+### _Polish_
 
-_Em breve_
+Antes de passarem para a parte de aprendizagem, devem polir muito bem o vosso
+protótipo, sendo as aterragens desafiantes mas não muito difíceis para o jogador
+humano. Após chegarem a um conjunto interessante de parâmetros, não os
+modifiquem mais, caso contrário a próxima fase (aprendizagem) torna-se mais
+complicada.
+
+### Aprendizagem com Naive Bayes Classifier
+
+Esta é a parte principal do projeto. Em primeiro lugar, convém definir
+claramente os _inputs_ e _outputs_ do(s) classificador(es) de Bayes. Fica uma
+sugestão:
+
+* _**Inputs**_ (estado do jogo):
+  * Quantidade de combustível
+  * Velocidade horizontal
+  * Velocidade vertical
+  * Rotação
+  * Distância horizontal ao centro da zona de aterragem
+  * Distância vertical em linha reta ao chão (seja zona de aterragem ou não)
+* _**Outputs**_ (ação a aplicar dado o estado do jogo):
+  * Rotação para a direita (RD)
+  * Rotação para a esquerda (RE)
+  * Propulsores ligados (P)
+
+Os _outputs_ podem ocorrer em simultâneo, sendo também possível não ocorrer
+nenhum. É possível (e poderá ser extremamente útil) considerar os três _outputs_
+como um só, tal como acontece no código incluído neste repositório.
+
+O(s) classificador(es) de Bayes deve(m) ser treinado(s) com informação dada pelo
+jogador. Esta informação pode ser obtida durante os jogos, sendo capturada em
+intervalos de tempo constantes e pré-definidos. Por exemplo, um jogo com a
+duração de um minuto pode ter várias centenas de observações fornecidas pelo
+jogador. Eis alguns exemplos de informação capturada durante um jogo:
+
+| Combustível | Vel. horiz. | Vel. vert. | Rot. | Dist. Horiz. LZ | Dist. chão | _Output_  |
+|------------:|------------:|-----------:|-----:|----------------:|-----------:|-----------|
+| 32.04       | 3.71        |      -13.1 | 0.5  |            92.1 | 26.33      | RD,T      |
+| 10.2        | -0.05       |       -0.1 | 0.0  |             0.2 | 0.5        | --        |
+
+De modo a que a AI aprenda mais rapidamente, apenas os dados obtidos de jogos
+finalizados com sucesso devem ser enviados para o classificador de Bayes.
 
 ### Menu
 
