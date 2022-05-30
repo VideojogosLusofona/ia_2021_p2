@@ -7,7 +7,7 @@
 
 using UnityEngine;
 
-public class ControlLander : MonoBehaviour
+public class LanderControl : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Sprite to use when lander is NOT using thrusters")]
