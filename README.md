@@ -85,8 +85,8 @@ semelhante [neste link](https://arcader.com/lunar-lander/).
 Antes de passarem para a parte de aprendizagem, devem polir muito bem o vosso
 protótipo, sendo as aterragens desafiantes mas não muito difíceis para o jogador
 humano. Após chegarem a um conjunto interessante de parâmetros, não os
-modifiquem mais, caso contrário a próxima fase (aprendizagem) torna-se mais
-complicada.
+modifiquem mais. Caso contrário poderão ter de iterar várias vezes a fase de
+aprendizagem, complicando e atrasando a finalização deste projeto.
 
 ### Aprendizagem com Naive Bayes Classifier
 
@@ -110,11 +110,12 @@ Os _outputs_ podem ocorrer em simultâneo, sendo também possível não ocorrer
 nenhum. É possível (e poderá ser extremamente útil) considerar os três _outputs_
 como um só, tal como acontece no código incluído neste repositório.
 
-O(s) classificador(es) de Bayes deve(m) ser treinado(s) com informação dada pelo
-jogador. Esta informação pode ser obtida durante os jogos, sendo capturada em
-intervalos de tempo constantes e pré-definidos. Por exemplo, um jogo com a
-duração de um minuto pode ter várias centenas de observações fornecidas pelo
-jogador. Eis alguns exemplos de informação capturada durante um jogo:
+O(s) classificador(es) de Bayes deve(m) ser treinado(s) com observações
+capturadas durante os jogos do jogador humano, sendo obtidas em intervalos de
+tempo pré-definidos (curtos e constantes, por exemplo a cada 0.2 segundos). Por
+exemplo, num jogo com a duração de um minuto podem ser capturadas várias
+centenas de observações. Eis alguns exemplos de observações capturadas durante
+um jogo:
 
 | Combustível | Vel. horiz. | Vel. vert. | Rot. | Dist. Horiz. LZ | Dist. chão | _Output_  |
 |------------:|------------:|-----------:|-----:|----------------:|-----------:|-----------|
@@ -122,13 +123,40 @@ jogador. Eis alguns exemplos de informação capturada durante um jogo:
 | 10.2        | -0.05       |      -0.17 | 0.0  |             0.2 | 0.5        | --        |
 | 19.3        | -18.14      |     -33.10 | 30.4 |            50.1 | 29.54      | RE,T      |
 
-De modo a que a AI aprenda mais rapidamente, apenas os dados obtidos de jogos
-finalizados com sucesso devem ser enviados para o classificador de Bayes para
-fins de aprendizagem.
+Tal como no exemplo dado em aula, devem discretizar os valores dos _inputs_ da
+vossa implementação de modo a que os possam introduzir no classificador de
+Bayes. Por exemplo (e é apenas um exemplo, poderão ter de experimentar
+diferentes discretizações), o nível de combustível poderá ser mapeado em quatro
+valores discretos: atestado, meio depósito, na reserva e vazio.
 
-### Menu
+### Menu principal e fluxo do programa
 
-_Em breve_
+Tal como no exemplo Bayes Monsters, o menu deve ter três opções:
+
+* _**Human Game**_: _lander_ controlado pelo jogador humano
+* _**AI Game**_: _lander_ controlado pelo classificador de Bayes, que aprendeu com os
+  exemplos humanos.
+* _**Quit**_: Sair da aplicação
+
+No primeiro caso, _**Human Game**_, o jogador humano controla o _lander_. As
+decisões do jogador humano vão sendo capturadas para possível inclusão no
+classificador de Bayes. No fim do jogo, quer o jogador tenha tido sucesso ou
+não, deve ser apresentada uma caixa de diálogo indicando quantas observações
+foram capturadas, e perguntando ao jogador se as quer passar ao classificador de
+Bayes para fins de aprendizagem. De modo a que a AI aprenda mais rapidamente,
+o jogador deve responder sim apenas se tiver finalizado o jogo com sucesso ou
+muito perto disso. Após a pergunta ter sido respondida, o programa volta ao
+menu principal.
+
+No segundo caso, _**AI Game**_, o classificador de Bayes controlará o _lander_.
+Espera-se que, após alguns jogos de sucesso do jogador humano, o classificador
+de Bayes seja também capaz de controlar o _lander_ com sucesso.
+
+A terceira opção, _**Quit**_, é auto-explicativa.
+
+Em qualquer dos casos, poderá ser interessante ter o número de observações
+(efetivamente passadas ao classificador de Bayes) indicado permanentemente no
+UI.
 
 ### Notas adicionais
 
@@ -142,6 +170,10 @@ o código de dois dos exemplos dados em aula (disponíveis no Moodle):
 
 Se tiverem dúvidas sobre como proceder em alguma fase do projeto, entrem em
 contacto (pelo menos uma semana antes do prazo de entrega).
+
+## Código e Git
+
+_Em breve_
 
 ## Relatório
 
