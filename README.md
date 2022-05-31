@@ -185,7 +185,28 @@ tanto para o código como para o relatório.
 
 ## Relatório
 
-_Em breve_
+O relatório deve estar incluído no repositório em formato [Markdown] (ficheiro
+`README.md`, ou seja, este ficheiro, que podem editar à vossa medida), e deve
+estar organizado da seguinte forma:
+
+* Título do projeto.
+* Autoria:
+  * Nome dos autores (primeiro e último) e respetivos números de aluno.
+  * Informação de quem fez o quê no projeto. Esta informação é
+    **obrigatória** e deve refletir os *commits* feitos no Git.
+* Arquitetura da solução:
+  * Descrição da solução, com breve explicação de como o código foi
+    organizado, bem como dos algoritmos não triviais que tenham sido
+    implementados.
+  * As imagens e diagramas que considerem úteis para descrever o vosso
+    projeto.
+* Referências, incluindo trocas de ideias com colegas, código aberto
+  reutilizado (e.g., do docente, de colegas, do StackOverflow) e bibliotecas
+  de terceiros utilizadas. Devem ser o mais detalhados possível.
+* **Nota:** o relatório deve ser simples e breve, com informação mínima e
+  suficiente para que seja possível ter uma boa ideia do que foi feito.
+  Atenção aos erros ortográficos e à correta formatação [Markdown], pois
+  ambos serão tidos em conta na nota final.
 
 ## Entrega
 
