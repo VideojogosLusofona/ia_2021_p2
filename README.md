@@ -173,7 +173,15 @@ contacto (pelo menos uma semana antes do prazo de entrega).
 
 ## Código e Git
 
-_Em breve_
+O código do projeto, bem como o uso de Git, devem seguir as melhores práticas
+lecionadas em LP1 e LP2 e descritas nos diferentes enunciados dessas
+disciplinas.
+
+Estas componentes não são o foco principal desta avaliação, mas projetos mal
+programados e com fraco uso de Git serão penalizados.
+
+Todos os membros do grupo devem contribuir para o repositório, de preferência
+tanto para o código como para o relatório.
 
 ## Relatório
 
