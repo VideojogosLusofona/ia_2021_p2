@@ -118,15 +118,30 @@ jogador. Eis alguns exemplos de informação capturada durante um jogo:
 
 | Combustível | Vel. horiz. | Vel. vert. | Rot. | Dist. Horiz. LZ | Dist. chão | _Output_  |
 |------------:|------------:|-----------:|-----:|----------------:|-----------:|-----------|
-| 32.04       | 3.71        |      -13.1 | 0.5  |            92.1 | 26.33      | RD,T      |
-| 10.2        | -0.05       |       -0.1 | 0.0  |             0.2 | 0.5        | --        |
+| 32.04       | 3.71        |     -13.11 | 0.5  |            92.1 | 26.33      | RD,T      |
+| 10.2        | -0.05       |      -0.17 | 0.0  |             0.2 | 0.5        | --        |
+| 19.3        | -18.14      |     -33.10 | 30.4 |            50.1 | 29.54      | RE,T      |
 
 De modo a que a AI aprenda mais rapidamente, apenas os dados obtidos de jogos
-finalizados com sucesso devem ser enviados para o classificador de Bayes.
+finalizados com sucesso devem ser enviados para o classificador de Bayes para
+fins de aprendizagem.
 
 ### Menu
 
 _Em breve_
+
+### Notas adicionais
+
+Para implementação deste projeto é crucial entender bem as partes relevantes de
+PCG (_midpoint displacement_ e gerador de Halton), bem como classificadores de
+Bayes. Além de um bom entendimento teórico, será certamente importante perceber
+o código de dois dos exemplos dados em aula (disponíveis no Moodle):
+
+* Projeto Procedural2D
+* Projeto Bayes Monsters
+
+Se tiverem dúvidas sobre como proceder em alguma fase do projeto, entrem em
+contacto (pelo menos uma semana antes do prazo de entrega).
 
 ## Relatório
 
